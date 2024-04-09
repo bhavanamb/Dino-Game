@@ -1,0 +1,33 @@
+#game {
+  width: 500px;
+  height: 200px;
+  border: 1px black solid;
+}
+
+#character {
+  position: relative;
+  top: 20px;
+  left: 30px;
+  height: 100px;
+  width: 90px;
+  background-color: red;
+  animation: jumping 3s linear;
+}
+
+@keyframes jumping {
+  0% {
+    top: 10px;
+  }
+  25% {
+    top: 20px;
+    left: 50px;
+  }
+  50% {
+    top: 15px;
+    left: 60px;
+  }
+  100% {
+    top: 30px;
+    left: 90px;
+  }
+}

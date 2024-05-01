@@ -1,3 +1,28 @@
+body {
+  display: flex;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
 #game {
   width: 500px;
   height: 200px;
@@ -16,16 +41,23 @@
 #block {
   position: relative;
   top: 130px;
-  left: 70px;
+  left: 40px;
   background-color: blue;
   width: 20px;
   height: 20px;
+}
+
+.slide-block {
   animation: slide 1s infinite linear;
 }
 
 .animate {
   animation: jump 300ms linear;
 }
+
+/* .slide-animation {
+  animation: slide 1s infinite linear;
+} */
 
 @keyframes jump {
   0% {
@@ -49,4 +81,20 @@
   100% {
     left: -20px;
   }
+}
+
+.paused {
+  animation-play-state: paused;
+}
+
+.game-start {
+  margin: 10px;
+  text-align: center;
+  background-color: black;
+}
+
+.start-btn {
+  margin: 2px;
+  background-color: lightgreen;
+  border-radius: 2px;
 }

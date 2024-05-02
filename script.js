@@ -1,8 +1,11 @@
-const jump = () => {
-  console.log(character.classList);
+//to calculate the score when characted jumps and block is passed
+let passedBlock = false;
 
+const jump = () => {
   character.classList.add("animate");
   setTimeout(removeJump, 300);
+  //need to reset to calc the score when character jumps
+  passedBlock = false;
 };
 
 const removeJump = () => {
@@ -24,7 +27,7 @@ const checkGameOver = () => {
   const blockLeftValue = parseInt(
     window.getComputedStyle(block).getPropertyValue("left")
   );
-
+  //when the character hits the block
   if (charactedTopValue >= 130 && blockLeftValue < 40 && blockLeftValue > 0) {
     //alert("game over");
     document.getElementById("overlay").style.display = "block";
@@ -33,8 +36,13 @@ const checkGameOver = () => {
     block.style.animationPlayState = "paused";
 
     character.style.animationPlayState = "paused";
-    // const gameOverText = document.createTextNode("Game Over");
-    // gameOver.appendChild(gameOverText);
+  } else {
+    if (!passedBlock && blockLeftValue < 40 && blockLeftValue > 0) {
+      let currentScore = parseInt(document.getElementById("score").textContent);
+
+      document.getElementById("score").textContent = currentScore + 1;
+      passedBlock = true;
+    }
   }
 };
 
